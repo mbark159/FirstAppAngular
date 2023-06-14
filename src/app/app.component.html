@@ -1,0 +1,37 @@
+<nav class="p-3">
+    <ul class="nav nav-pills">
+<!--      <li>-->
+<!--        <button routerLink="/home" class="btn btn-outline-success ms-1" >Home-->
+<!--          <i class="bi-house"></i>-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <button routerLink="/products" class="btn btn-outline-success ms-1">Product-->
+<!--          <i class="bi-archive"></i>-->
+<!--        </button>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <button routerLink="/newProduct" class="btn btn-outline-success ms-1">New Products-->
+<!--          <i class="bi-pencil"></i>-->
+<!--        </button>-->
+<!--      </li>-->
+
+      <li *ngFor="let action of actions">
+        <button
+          (click)="setCurrentAction(action)"
+           routerLink="{{action.route}}"
+           [class]="action==currentAction?'btn btn-success ms-1': 'btn btn-outline-success ms-1'"
+           class="btn btn-outline-success ms-1"
+        >
+           {{action.title}}
+          <i class="bi bi-{{action.icon}}" ></i>
+        </button>
+
+      </li>
+    </ul>
+
+</nav>
+
+<router-outlet>
+
+</router-outlet>
